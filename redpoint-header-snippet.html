@@ -1,0 +1,164 @@
+<!--
+  Redpoint Advisors — SharePoint intranet banner
+  Fixed 1200x250, sized to sit inside a standard one-column web part.
+  Mirrors the brand system from redpointadvisors.com: logo mark, colors,
+  and an original rotating particle-globe effect (not their source, same idea).
+  Paste this whole block into a Script Editor / Embed web part.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<style>
+  .rp-banner {
+    --rp-bg: #1b1413;
+    --rp-fg: #e4e2dc;
+    --rp-accent: #c4283a;
+
+    position: relative;
+    width: 1200px;
+    height: 250px;
+    max-width: 100%;
+    overflow: hidden;
+    background: var(--rp-bg);
+    box-shadow: 0 1px 0 var(--rp-accent);
+    font-family: 'Michroma', sans-serif;
+  }
+
+  .rp-banner__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: radial-gradient(ellipse 70% 90% at 68% 50%, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 90% at 68% 50%, #000 55%, transparent 100%);
+  }
+
+  .rp-banner__fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--rp-bg) 0%, var(--rp-bg) 18%, rgba(27, 20, 19, 0) 55%);
+    pointer-events: none;
+  }
+
+  .rp-banner__brand {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .rp-banner__logo {
+    display: block;
+    color: var(--rp-fg);
+  }
+
+  .rp-banner__logo svg {
+    height: 20px;
+    width: auto;
+    display: block;
+    fill: currentColor;
+  }
+
+  .rp-banner__tagline {
+    margin-top: 12px;
+    padding-left: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(228, 226, 220, 0.5);
+  }
+</style>
+
+<div class="rp-banner">
+  <canvas class="rp-banner__canvas" id="rp-globe"></canvas>
+  <div class="rp-banner__fade"></div>
+
+  <div class="rp-banner__brand">
+  <a class="rp-banner__logo" href="/" aria-label="Redpoint home">
+    <svg viewBox="0 0 1347 91" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Redpoint">
+      <path d="M867.806 0.168238C878.196 0.166231 888.915 -1.25819 898.104 4.21804C904.505 7.99412 909.092 14.2118 910.807 21.4407C912.218 27.1747 912.193 61.7814 911.216 67.4446C910.593 71.124 909.261 74.6468 907.292 77.8177C902.78 85.0683 896.508 88.5712 888.401 90.4573C884.333 91.1279 874.053 90.8944 869.7 90.8919L836.057 90.8577L797.722 90.8968C792.372 90.9062 781.858 91.1981 776.772 90.6262C772.116 90.0913 767.658 88.4459 763.77 85.8284C755.424 80.2783 750.896 69.7408 751.624 59.8557C752.437 48.797 750.348 33.9935 752.203 23.3411C752.891 19.3482 754.422 15.548 756.695 12.1907C761.492 5.13253 768.087 1.83761 776.273 0.326441C780.766 -0.084877 790.354 0.18083 795.13 0.185816L830.991 0.199488L867.806 0.168238ZM493.291 0.153589C498.124 0.135627 505.677 -0.105684 510.264 0.652613C515.414 1.49673 520.209 3.81229 524.073 7.31863C533.042 15.3619 534.189 25.436 533.477 36.8675C532.435 53.526 537.719 68.8544 525.365 82.4378C515.319 92.0008 506.489 90.9333 493.568 90.9153C484.97 90.9033 476.282 90.8603 467.678 90.8538L374.178 90.8714L374.195 0.203394L468.179 0.206323L493.291 0.153589ZM651.522 0.184839C666.37 0.183841 681.371 0.0817781 696.099 0.320581C706.304 0.485607 716.506 7.21654 720.39 16.6858C724.044 25.5873 723.974 44.4177 721.392 53.7669C719.143 61.9025 711.216 68.016 703.837 71.1594C696.782 73.3292 666.764 72.5584 657.49 72.5569L584.271 72.5198L584.275 90.8938L562.857 90.8675V0.200464L651.522 0.184839ZM1157.14 0.200464V90.8723L1130.31 90.8733C1094.14 68.5455 1056.93 45.3439 1020.46 23.6458L1020.45 90.8684L999.093 90.887L999.088 0.202417L1026.01 0.199488L1135.73 67.4192L1135.74 0.195581L1157.14 0.200464ZM344.48 21.5384L209.605 21.5423L209.617 34.9202L341.461 34.9231L341.458 56.0745L209.614 56.0716L209.61 69.5061L344.48 69.5042L344.478 90.8841L188.32 90.8636L188.326 0.201441L344.471 0.198511L344.48 21.5384ZM118.84 0.170191C131.192 0.171188 142.456 -1.10433 151.938 8.59011C159.777 16.6036 159.381 22.4469 159.736 32.7053C160.237 47.1902 153.987 59.4187 139.258 63.8714L158.138 90.8753L132.053 90.8626L113.985 64.6272L21.3701 64.6184L21.3555 90.8772L0 90.8714V0.198511L118.84 0.170191ZM1346.13 21.5393L1276.34 21.5501V90.8704L1254.98 90.8772L1254.97 21.552L1185.78 21.554L1185.79 0.203394L1346.13 0.198511V21.5393ZM965.779 90.8714L944.415 90.8743L944.426 0.200464L965.789 0.198511L965.779 90.8714ZM882.225 22.8401C877.319 20.5976 842.194 21.4027 833.25 21.4954C817.939 21.6549 799.442 20.8708 784.455 21.7034C774.718 24.808 772.844 29.6873 772.979 39.5139C773.148 51.1989 769.848 67.9896 786.6 69.4065C800.36 70.0142 815.068 69.2685 828.958 69.5442C844.947 69.2147 863.389 70.2234 878.919 69.3245C883.346 67.8173 886.807 65.9507 888.94 61.5598C891.383 56.5388 890.944 35.0919 889.289 30.4427C888.048 27.0639 885.505 24.3249 882.225 22.8401ZM497.619 21.6731C486.621 21.2419 475.176 21.4919 463.995 21.4964L395.489 21.5374L395.487 69.4993L466.731 69.4876C477.581 69.498 489.649 69.8741 500.472 69.1966C502.72 69.056 505.991 67.0932 507.791 65.6409C513.948 58.7677 511.839 53.7704 512.128 45.3587C512.537 33.6688 512.552 22.4479 497.619 21.6731ZM584.261 21.5511L584.266 51.1956L656.463 51.1761C667.9 51.183 680.48 51.5693 691.882 50.8284C693.906 50.6967 696.902 49.0902 698.542 47.8274C704.894 38.5103 703.03 21.6333 688.566 21.6565C676.676 21.6755 664.73 21.5177 652.824 21.5266L584.261 21.5511ZM128.766 21.7063C116.795 21.3578 104.484 21.5066 92.5039 21.5091L21.3711 21.5384L21.3701 43.3606L93.2471 43.3596C104.771 43.3616 117.155 43.6749 128.637 43.0423C131.225 42.8992 133.395 41.9716 135.52 40.468C139.5 34.8712 139.91 27.2741 133.329 23.1145C131.853 22.1813 130.499 21.8106 128.766 21.7063Z"/>
+    </svg>
+  </a>
+  <div class="rp-banner__tagline">Advisor Hub</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var canvas = document.getElementById('rp-globe');
+  var ctx = canvas.getContext('2d');
+  var wrap = canvas.parentElement;
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  var W = wrap.clientWidth || 1200;
+  var H = wrap.clientHeight || 250;
+  canvas.width = W * DPR;
+  canvas.height = H * DPR;
+  ctx.scale(DPR, DPR);
+
+  var N = 650;
+  var points = [];
+  for (var i = 0; i < N; i++) {
+    var yv = 1 - (i / (N - 1)) * 2;
+    var r = Math.sqrt(1 - yv * yv);
+    var theta = Math.PI * (1 + Math.sqrt(5)) * i;
+    points.push({
+      x: Math.cos(theta) * r,
+      y: yv,
+      z: Math.sin(theta) * r,
+      accent: Math.random() > 0.95
+    });
+  }
+
+  var radius = Math.min(W, H) * 0.62;
+  var cx = W * 0.68;
+  var cy = H * 0.52;
+  var tilt = 0.36;
+  var angle = 0;
+  var cosT = Math.cos(tilt), sinT = Math.sin(tilt);
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var cosA = Math.cos(angle), sinA = Math.sin(angle);
+
+    var proj = new Array(N);
+    for (var i = 0; i < N; i++) {
+      var p = points[i];
+      var x1 = p.x * cosA - p.z * sinA;
+      var z1 = p.x * sinA + p.z * cosA;
+      var y2 = p.y * cosT - z1 * sinT;
+      var z2 = p.y * sinT + z1 * cosT;
+      proj[i] = { x: x1, y: y2, z: z2, accent: p.accent };
+    }
+    proj.sort(function (a, b) { return a.z - b.z; });
+
+    for (var j = 0; j < proj.length; j++) {
+      var pr = proj[j];
+      var depth = (pr.z + 1.5) / 2.5;
+      var sx = cx + pr.x * radius;
+      var sy = cy + pr.y * radius;
+      var size = 0.5 + depth * 1.5;
+      var alpha = 0.12 + depth * 0.6;
+
+      ctx.beginPath();
+      ctx.fillStyle = pr.accent
+        ? 'rgba(196, 40, 58, ' + alpha + ')'
+        : 'rgba(228, 226, 220, ' + alpha + ')';
+      ctx.arc(sx, sy, size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if (!reduceMotion) {
+      angle += 0.0018;
+      requestAnimationFrame(draw);
+    }
+  }
+
+  draw();
+})();
+</script>
